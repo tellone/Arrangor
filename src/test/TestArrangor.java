@@ -4,7 +4,7 @@ import arrangor.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class SampleTest {
+public class TestArrangor {
 
    private Arrangor arrangor1;
    private Arrangor arrangor2;
@@ -14,17 +14,16 @@ public class SampleTest {
     */
    @Before
    public void setUp() {
-      arrangor1 = new Arrangor("Grim Reaper", "0766-666666", "death66@ gmail.com");
+      arrangor1 = new Arrangor("Grim Reaper", "0766-666666", "death66@gmail.com");
    }
-
    /**
     * Tears down the test fixture. 
     * (Called after every test case method.)
     */
    @After
    public void tearDown() {
-      Arrangor1 = null;
-      Arrangor2 = null;
+      arrangor1 = null;
+      arrangor2 = null;
    }
 
    @Test
@@ -32,12 +31,12 @@ public class SampleTest {
       assertEquals("GetName ger fel", "Grim Reaper", arrangor1.getName());
    }
    @Test
-   public void testGetName() {
+   public void testGetNumber() {
       assertEquals("GetNumber ger fel", "0766-666666", arrangor1.getNumber());
    }
    @Test
    public void testGetEmail() {
-      assertEquals("GetEmail ger fel", "death@gmail.com", arrangor1.getEmail());
+      assertEquals("GetEmail ger fel", "death66@gmail.com", arrangor1.getEmail());
    }
    // @Test(expected=IndexOutOfBoundsException.class)
    // public void testForException() {
