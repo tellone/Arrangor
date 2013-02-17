@@ -35,16 +35,22 @@ public class Arrangor {
    public String getNumber() {
       return number;
    }
+   
    /** 
     * returns email
     * @return email
     */
-
    public String getEmail() {
       return email;
    }
-   // @Overrides
-   public int compareTo() {
-      return 0;
+   @Override
+   public boolean equals(Object something) {
+      if ( something instanceof Arrangor) {
+         Arrangor new_arrangor = (Arrangor) something;
+         if ( new_arrangor.getEmail() == email && new_arrangor.getNumber() == number) {
+            return true;
+         }
+      }
+      return false;
    }
 }

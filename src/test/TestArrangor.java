@@ -1,6 +1,8 @@
 package test;
 
 import arrangor.*;
+import java.util.ArrayList;
+import java.util.Collections.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
@@ -37,6 +39,23 @@ public class TestArrangor {
    @Test
    public void testGetEmail() {
       assertEquals("GetEmail ger fel", "death66@gmail.com", arrangor1.getEmail());
+   }
+   
+   // @Test
+   // public void testComprator() {
+   //    arrangor2 = new Arrangor("Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
+   //    Comparator<Arrangor> cmp = new Comparator<Arrangor>();
+
+   //    assertTrue("CompareTo ger fel ordning", amp( arrangor1, arrangor2) < 0 );
+   // }
+   @Test
+   public void TestCollectionSort() {
+
+      arrangor2 = new Arrangor("Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
+      ArrayList<Arrangor> arrangers = new ArrayList<Arrangor>();
+      arrangers.add(arrangor2);
+      arrangers.add(arrangor1);
+      assertEquals("Sorting works wrong",arrangor1, max(arrangers));
    }
    // @Test(expected=IndexOutOfBoundsException.class)
    // public void testForException() {
