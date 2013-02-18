@@ -40,6 +40,10 @@
   <!--   </description> -->
   <!--   <role-name>admin-script</role-name> -->
   <!-- </security-role> -->
+<init-param>
+  <param-name>jcdbDriver</param-name>
+  <param-value>com.mysql.jcdb.Driver</param-value>
+</init-param>
 
   <!-- <error-page> -->
   <!--   <error-code>401</error-code> -->
@@ -54,7 +58,7 @@
   <!--   <location>/WEB-INF/jsp/404.jsp</location> -->
   <!-- </error-page> -->
 
-</webapp>
+</web-app>
 
 
 

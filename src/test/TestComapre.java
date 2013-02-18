@@ -14,7 +14,7 @@ public class TestCompare {
    private Arrangor arrangor2;
    private Arrangor arrangor3;
    private List<Arrangor> arrangers;
-   private  CompareArrangor cmp = new CompareArrangor();
+   private CompareArrangor cmp = new CompareArrangor();
    /**
     * Sets up the test fixture. 
     * (Called before every test case method.)
@@ -45,17 +45,15 @@ public class TestCompare {
    
    @Test
    public void TestCompare() {
-
+      
+      assertFalse("Comparator equals error", cmp(arrangor2, arrangor3) == 0);
+   }
+ 
+   @Test
+   public void testForException() {
       arrangers.add(arrangor2);
       arrangers.add(arrangor1);
       arrangers.add(arrangor3);
       assertEquals("Sorting works wrong",arrangor1, Collections.max(arrangers , cmp));
-      assertFalse("Comparator equals error", cmp(arrangor2, arrangor3) == 0);
    }
-
-
-   // @Test
-   // public testForException() {
-   //    Object o = emptyList.get(0);
-   // }
 }
