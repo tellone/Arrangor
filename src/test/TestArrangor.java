@@ -16,7 +16,7 @@ public class TestArrangor {
     */
    @Before
    public void setUp() {
-      arrangor1 = new Arrangor("Grim Reaper", "0766-666666", "death66@gmail.com");
+      arrangor1 = new Arrangor(1, "Grim Reaper", "0766-666666", "death66@gmail.com");
    }
    /**
     * Tears down the test fixture. 
@@ -40,25 +40,4 @@ public class TestArrangor {
    public void testGetEmail() {
       assertEquals("GetEmail ger fel", "death66@gmail.com", arrangor1.getEmail());
    }
-   
-   // @Test
-   // public void testComprator() {
-   //    arrangor2 = new Arrangor("Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
-   //    Comparator<Arrangor> cmp = new Comparator<Arrangor>();
-
-   //    assertTrue("CompareTo ger fel ordning", amp( arrangor1, arrangor2) < 0 );
-   // }
-   @Test
-   public void TestCollectionSort() {
-
-      arrangor2 = new Arrangor("Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
-      ArrayList<Arrangor> arrangers = new ArrayList<Arrangor>();
-      arrangers.add(arrangor2);
-      arrangers.add(arrangor1);
-      assertEquals("Sorting works wrong",arrangor1, max(arrangers));
-   }
-   // @Test(expected=IndexOutOfBoundsException.class)
-   // public void testForException() {
-   //    Object o = emptyList.get(0);
-   // }
 }

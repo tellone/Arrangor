@@ -10,9 +10,9 @@ public class CompareArrangor implements Comparator<Arrangor> {
    @Override
    public int compare(Arrangor first, Arrangor second) {
       if ( first.getName().compareTo(second.getName()) == 0) {
-         return first.getNumber().compareTo(second.getNumber());
+         return -first.getNumber().compareTo(second.getNumber());
       }
          
-      return first.getName().compareTo(second.getName());
+      return - first.getName().compareTo(second.getName());
    }
 }

@@ -1,4 +1,5 @@
 
+
 <%@page language="java" contentType="text/html"%>
 // <jsp:useBean id="Arrangor" class="classes.Arrangor"/> 
 <html>
@@ -11,7 +12,7 @@
 	</head>
 	<body>	
 		<h1> Sätt in namn, Telefon nummer och Email </h1>
-		<form id="arr_frm" method="post" action="input_data.jsp" onSubmit=" return checkValid" >
+		<form id="arr_frm" method="post" action="validate.jsp" onSubmit=" return false" >
 			<table width="68%" border="3" cellspacing="2" cellpadding="0" >
 				<tr>
 					<td width="22%">&nbsp;</td>

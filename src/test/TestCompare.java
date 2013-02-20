@@ -1,4 +1,3 @@
-
 package test;
 
 import arrangor.*;
@@ -14,7 +13,7 @@ public class TestCompare {
    private Arrangor arrangor2;
    private Arrangor arrangor3;
    private List<Arrangor> arrangers;
-   private CompareArrangor cmp = new CompareArrangor();
+   private CompareArrangor cmp;
    /**
     * Sets up the test fixture. 
     * (Called before every test case method.)
@@ -22,11 +21,11 @@ public class TestCompare {
    @Before
    public void setUp() {
 
-      arrangor1 = new Arrangor("Grim Reaper", "0766-666666", "death66@gmail.com");
-
-      arrangor2 = new Arrangor("Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
-      arrangor3 = new Arrangor("Julius Cesar", "2344", "Imitator@hotmail.com");
+      arrangor1 = new Arrangor(1, "Grim Reaper", "0766-666666", "death66@gmail.com");
+      arrangor2 = new Arrangor(2, "Julius Cesar", "9344","veni.vedi.versi@cesar.nu");
+      arrangor3 = new Arrangor(3, "Julius Cesar", "2344", "Imitator@hotmail.com");
       arrangers = new ArrayList<Arrangor>();
+      cmp = new CompareArrangor();
 
    }
    /**
@@ -39,14 +38,14 @@ public class TestCompare {
       arrangor2 = null;
       arrangor3 = null;
       arrangers = null;
-
+      cmp = null;
    }
 
    
    @Test
    public void TestCompare() {
       
-      assertFalse("Comparator equals error", cmp(arrangor2, arrangor3) == 0);
+      assertFalse("Comparator equals error", cmp.compare(arrangor2, arrangor3) == 0);
    }
  
    @Test

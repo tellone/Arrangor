@@ -42,9 +42,23 @@
   <!-- </security-role> -->
 <init-param>
   <param-name>jcdbDriver</param-name>
-  <param-value>com.mysql.jcdb.Driver</param-value>
+  <param-value>com.mysqljcdb.Driver</param-value>
 </init-param>
 
+<init-param>
+  <param-name>dbURL</param-name>
+  <param-value>jdbc:mysql://localhost:3060:emailRepo</param-value>
+</init-param>
+
+<init-param>
+  <param-name>dbUserName</param-name>
+  <param-value>phil</param-value>
+</init-param>
+
+<init-param>
+  <param-name>dbPassword</param-name>
+  <param-value>goNorticgo</param-value>
+</init-param>
   <!-- <error-page> -->
   <!--   <error-code>401</error-code> -->
   <!--   <location>/WEB-INF/jsp/401.jsp</location> -->

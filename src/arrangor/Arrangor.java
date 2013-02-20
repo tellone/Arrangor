@@ -1,6 +1,7 @@
 package arrangor;
 
 public class Arrangor {
+   private int id;
    private String name;
    private String number;
    private String email;
@@ -13,7 +14,8 @@ public class Arrangor {
     * @param String phone
     * @param String mail
     */
-   public Arrangor( String named, String phone, String mail) {
+   public Arrangor(int ide, String named, String phone, String mail) {
+      id = ide;
       name = named;
       number = phone;
       email = mail;
