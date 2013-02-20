@@ -6,12 +6,21 @@
 		<title> Lägg till arragörer </title>
 		<script type="text/javascript" src="1.91.min.js"></script>
 		<script>
-			$(document).return false;
+			$(document).ready( function() ( { 
+				$("form").submit(function() {
+				if ( $(this).name() = "Email") {
+				isEmail = true
+
+				var isEmail = false
+				$(this).find(":text").each(function() {
+					if ==	
+					CheckifValid(
+				 
 		</script>
 	</head>
 	<body>	
 		<h1> Sätt in namn, Telefon nummer och Email </h1>
-		<form id="arr_frm" method="post" action="input_data.jsp" onSubmit=" return checkValid" >
+		<form id="arr_form" method="post" action="input_data.jsp" onSubmit=" r" >
 			<table width="68%" border="3" cellspacing="2" cellpadding="0" >
 				<tr>
 					<td width="22%">&nbsp;</td>
