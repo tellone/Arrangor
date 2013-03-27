@@ -4,46 +4,32 @@
 <html>
 	<head>
 		<title> Lägg till arragörer </title>
-		<script type="text/javascript" src="1.91.min.js"></script>
+		<script type="text/javascript" src="jquery-1.91.min.js"></script>
+		<script type="text/javascript" src="jquery.validate.min.js"></script>
 		<script>
 			$(document).ready( function() ( { 
-				$("form").submit(function() {
-				if ( $(this).name() = "Email") {
-				isEmail = true
+				$("#arr_form").validate()
+				});
 
-				var isEmail = false
-				$(this).find(":text").each(function() {
-					if ==	
-					CheckifValid(
-				 
-		</script>
-	</head>
-	<body>	
-		<h1> Sätt in namn, Telefon nummer och Email </h1>
-		<form id="arr_form" method="post" action="input_data.jsp" onSubmit=" r" >
-			<table width="68%" border="3" cellspacing="2" cellpadding="0" >
-				<tr>
-					<td width="22%">&nbsp;</td>
-					<td width="78%">&nbsp;</td>
-				</tr>
-				<tr>
-					<td>Namn </td>
-					<td><input type="text" name="Arrangör Namn"></td>
-				</tr>
-				<tr>
-					<td>Telefon nummer</td>
-					<td><input type="text" name="telefon nummer"></td>
-				</tr>
-				<tr>
-					<td>Email adress</td>
-					<td><input type="text" name="Email"></td>
-				</tr>
-				<tr>
-					<td>Email adress igen</td>
-					<td><input type="text" name="Email Valdid"></td>
-				</tr>
+			</script>
+		</head>
+		<body>	
+			<h1> Sätt in namn, Telefon nummer och Email </h1>
+			<form id="arrForm">
+				<fieldset>
+					<legend>Solution 4-1: Using the email input type</legend>
+					<label for="name">Namn</label>
+					<input id="name" name="name" type="text"/><br/>
+					
+					<label for="nummer">Telefon nummer</label>
+					<input id="nummer" name="nummer" type="text"/><br/>
 
-				
-			</table>
-</form>
+					<label for="Email1">Email</label>
+					<input id="email1" name="email1" type="text"/><br/>
+
+					<label for="Email2">Email Igen</label>
+					<input id="email2" name="email2" type="text"/><br/>
+					<input type="submit" value="Submit"/>
+				</fieldset>
+			</form>
 </body>
