@@ -1,5 +1,5 @@
 
-package arrangor;
+package src.arrangor;
 import java.util.Comparator;
 public class CompareArrangor implements Comparator<Arrangor> {
   

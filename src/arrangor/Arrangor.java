@@ -1,4 +1,4 @@
-package arrangor;
+package src.arrangor;
 
 public class Arrangor {
    private int id;
