@@ -14,7 +14,7 @@ import java.util.List;
 import src.dbhandler.*;
 import src.arrangor.*;
 
-@WebServlet("/arrangers/*")
+@WebServlet("/arrangorer/*")
 public class ArrangerServlet extends HttpServlet {
    
    protected String dbURL = null;

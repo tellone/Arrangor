@@ -1,7 +1,7 @@
 <%@page language="java" contentType="text/html"%>
 <html>
   <head>
-    <title> Arrangör registration</title>
+    <title> Arrangor registration</title>
 
       </script>
     </head>

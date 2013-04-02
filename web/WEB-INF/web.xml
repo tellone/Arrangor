@@ -43,7 +43,6 @@
 <servlet>
   <servlet-name> ArrangerServlet </servlet-name>
   <servlet-class>src.arrcontroller.ArrangorServlet </servlet-class>
-
   <init-param>
     <param-name>jcdbDriver</param-name>
     <param-value>com.mysqljcdb.Driver</param-value>
@@ -63,6 +62,11 @@
     <param-name>dbPassword</param-name>
     <param-value>goNorticgo</param-value>
   </init-param>
+</servlet>
+  <servlet-mapping>
+    <servlet-name> ArrangerServlet </servlet-name>
+    <url-pattern> /arrangorer/* </url-pattern>  
+  </servlet-mapping>
   <!-- <error-page> -->
   <!--   <error-code>401</error-code> -->
   <!--   <location>/WEB-INF/jsp/401.jsp</location> -->
@@ -75,7 +79,6 @@
   <!--   <error-code>404</error-code> -->
   <!--   <location>/WEB-INF/jsp/404.jsp</location> -->
   <!-- </error-page> -->
-</servlet>
 </web-app>
 
 
