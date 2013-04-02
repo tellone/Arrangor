@@ -10,9 +10,16 @@ public class ConnectionManager {
    private PreparedStatement addArr;
    private PreparedStatement getAllArr;
    private boolean dbConnected;
-   
-   public ConnectionManager(String dbURL, String dbUser, String dbPassword) {
-      // java.lang.Class.forName(config.getInitParameter("jcdbDriver"));
+   private String dbURL;
+   private String dbUser;
+   private String dbPassword;
+
+   public ConnectionManager(String url, String user, String pass) {
+      dbURL = url;
+      dbUser = user;
+      dbPassword = pass;
+
+
       try{
          connection = DriverManager.getConnection(dbURL, dbUser, dbPassword);
          addArr= connection.prepareStatement("INSERT INTO Arrangorer " + "( Name, Number, Email) " + "VALUES ( ?, ?, ? )" );
@@ -23,8 +30,8 @@ public class ConnectionManager {
          sqlE.printStackTrace();
       }
    }
-   public long addArranger(String name, String number, String email) {
 
+   public long addArranger(String name, String number, String email) {
       long modified = 0;
       
       try {
@@ -41,19 +48,21 @@ public class ConnectionManager {
       }
       return modified;
    }
+
+
    public ArrayList<Arrangor> getAllArrangers() {
    
-      List<Arrangor> Arrangorer;
+      ArrayList<Arrangor> arrangorer= null;
       ResultSet allFromDB;
       try {
          allFromDB = getAllArr.executeQuery();
-         Arrangorer = new ArrayList< Arrangor >();
+         arrangorer = new ArrayList< Arrangor >();
          while ( allFromDB.next() ) {
-            Arrangorer.add( new Arrangor(
-                     // allFromDB.getInt( "id" ),
+            arrangorer.add( new Arrangor(
+                     allFromDB.getInt( "id" ),
                      allFromDB.getString( "name" ),
                      allFromDB.getString( "number" ),
-                     allFromDB.getString( "email" ) ) );
+                     allFromDB.getString( "email" )));
          }
       }
       catch (SQLException sqlE)
@@ -61,7 +70,7 @@ public class ConnectionManager {
          sqlE.printStackTrace();
          close();
       }
-      return Arrangorer;
+      return arrangorer;
    }
 
    

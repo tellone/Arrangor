@@ -1,0 +1,21 @@
+<%@page language="java" contentType="text/html"%>
+<%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<html>
+  <head>
+    <title>Alla arrangörer i systemet</title>
+  </head>
+  <body>
+    Map size = <c:out value="${fn:length(paramValues)}"/>
+    <table border="1">
+      <tr><td>Map element</td><td>Par name</td><td>Par value[s]</td></tr>
+      <c:set var="k" value="0"/>
+      <c:forEach var="par" items="${paramValues}"><tr>
+        <td><c:out value="${k}"/></td>
+        <td><c:out value="'${par.key}'"/></td>
+        <td><c:forEach var="val" items="${par.value}">
+          <c:out value="'${val}'"/>
+          </c:forEach></td>
+          <c:set var="k" value="${k+1}"/>
+        </tr></c:forEach>
+      </table>
+  </body></html>

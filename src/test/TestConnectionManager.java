@@ -1,12 +1,12 @@
-package test;
+package src.test;
 
-import arrangor.*;
-import java.util.ArrayList;
+import src.arrangor.*;
 import java.util.Collections.*;
+import org.jmock.util.*;
 import org.junit.*;
 import static org.junit.Assert.*;
 
-public class TestArrangor {
+public class TestConnectionManager {
 
    private Arrangor arrangor1;
    private Arrangor arrangor2;

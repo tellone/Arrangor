@@ -13,7 +13,8 @@
 
       </script>
     </head>
-    <body>	
+    <body>
+      <div id="content">
       <h1> Sätt in namn, Telefon nummer och Email </h1>
       <form id="arrForm">
         <fieldset>
@@ -32,5 +33,12 @@
           <input type="submit" value="Submit"/>
         </fieldset>
       </form>
+    </div>
+
+      <footer id="page_footer">
+      <ol>
+        made by: Filip Pettersson for Nortic
+      </ol>
+      </footer>
     </body>
   </html>
