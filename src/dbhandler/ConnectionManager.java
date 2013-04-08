@@ -6,10 +6,8 @@ import java.sql.*;
 import src.arrangor.*;
 
 public class ConnectionManager {
-   private Connection connection;
-   private PreparedStatement addArr;
-   private PreparedStatement getAllArr;
-   private boolean dbConnected;
+   protected Connection connection;
+   protected boolean dbConnected;
    private String dbURL;
    private String dbUser;
    private String dbPassword;
@@ -19,11 +17,11 @@ public class ConnectionManager {
       dbUser = user;
       dbPassword = pass;
 
+   }
 
+   protected void setUpConnection() {
       try{
          connection = DriverManager.getConnection(dbURL, dbUser, dbPassword);
-         addArr= connection.prepareStatement("INSERT INTO Arrangorer " + "( Name, Number, Email) " + "VALUES ( ?, ?, ? )" );
-         getAllArr =  connection.prepareStatement("SELECT * FROM Arrangorer");
       } 
       catch (SQLException sqlE)
       {
@@ -33,8 +31,10 @@ public class ConnectionManager {
 
    public long addArranger(String name, String number, String email) {
       long modified = 0;
-      
+      PreparedStatement addArr = null;
       try {
+         setUpConnection();
+         addArr= connection.prepareStatement("INSERT INTO Arrangorer " + "( Name, Number, Email) " + "VALUES ( ?, ?, ? )" );
          addArr.setString(1, name);
 
          addArr.setString(2, number);
@@ -53,8 +53,11 @@ public class ConnectionManager {
    public ArrayList<Arrangor> getAllArrangers() {
    
       ArrayList<Arrangor> arrangorer= null;
+      PreparedStatement getAllArr = null;
       ResultSet allFromDB;
       try {
+         setUpConnection();
+         getAllArr =  connection.prepareStatement("SELECT * FROM Arrangorer");
          allFromDB = getAllArr.executeQuery();
          arrangorer = new ArrayList< Arrangor >();
          while ( allFromDB.next() ) {

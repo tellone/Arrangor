@@ -12,36 +12,44 @@
   
   <target name="test" depends="compile"> 
     <junit printsummary="yes" haltonfailure="yes">
-      <classpath>
-        <pathelement location="${build}/src/test"/>
-        <pathelement path="${java.class.path}"/>
-      </classpath>
         <formatter type="plain"/>
-        <test name="my.test.TestCase" haltonfailure="no" outfile="result">
-          <formatter type="xml"/>
-        </test>
         
-        <batchtest fork="yes" todir="${reports}">
-          <fileset dir="${src}">
-            <include name="**/*Test*.java"/>
-            <exclude name="**/AllTests.java"/>
+        <batchtest fork="no" todir="${reports}">
+          <fileset dir="${build}">
+            <include name="**/*Test*.class"/>
+            <exclude name="**/All*Tests.class"/>
           </fileset>
       </batchtest>
+      <classpath>
+        <pathelement location="${build}"/>
+
+      </classpath>
     </junit>
   </target>
+
+
 
   <target name="compile" depends="init">
     <javac srcdir="${src}" destdir="${build}">
       <classpath>
         <pathelement location="${build}"/>
         <pathelement path="${java.class.path}"/>
-        <pathelement location="lib/"/>
       </classpath>
     </javac>
   </target>
   <target name="clean">
     <delete dir="${build}"/>
   </target>
+  
+  <target name="change_web" depends="compile">
+    <delete dir="web/WEB-INF/classes"/>
+    <copydir src="${build}"
+      dest="web/WEB-INF/classes"
+      includes="**/*.class"
+      excludes="src/test*/**"/>
+  </target>
+
+
 
 </project>
 

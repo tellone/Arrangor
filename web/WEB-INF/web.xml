@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf8"?>
 
 <!-- 
-     Medeleande till den som läser 
+     medelande
 -->
 
 <web-app xmlns="http://java.sun.com/xml/ns/javaee"
@@ -11,9 +11,9 @@
   version="3.0"
   metadata-complete="true">
 
-  <display-name>Tomcat Arangördata server</display-name>
+  <display-name>Tomcat Arrangorer server</display-name>
   <description>
-  En server för att spara data om olika arrgörer i en databas eller fil.
+  En server för att spara data om olika arrgorer i en databas eller fil.
   </description>
 
   <!-- <servlet> -->
@@ -41,8 +41,8 @@
   <!--   <role-name>admin-script</role-name> -->
   <!-- </security-role> -->
 <servlet>
-  <servlet-name> ArrangerServlet </servlet-name>
-  <servlet-class>src.arrcontroller.ArrangorServlet </servlet-class>
+  <servlet-name> ArrangorerServlet </servlet-name>
+  <servlet-class>src.arrcontroller.ArrangorerServlet </servlet-class>
   <init-param>
     <param-name>jcdbDriver</param-name>
     <param-value>com.mysqljcdb.Driver</param-value>
@@ -63,10 +63,11 @@
     <param-value>goNorticgo</param-value>
   </init-param>
 </servlet>
-  <servlet-mapping>
-    <servlet-name> ArrangerServlet </servlet-name>
-    <url-pattern> /arrangorer/* </url-pattern>  
-  </servlet-mapping>
+  <!-- <servlet-mapping> -->
+  <!--   <servlet-name> ArrangorerServlet </servlet-name> -->
+  <!--   <url-pattern> /* </url-pattern> -->  
+  <!-- </servlet-mapping> -->
+
   <!-- <error-page> -->
   <!--   <error-code>401</error-code> -->
   <!--   <location>/WEB-INF/jsp/401.jsp</location> -->

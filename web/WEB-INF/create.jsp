@@ -1,6 +1,5 @@
 
 <%@page language="java" contentType="text/html"%>
-// <jsp:useBean id="Arrangor" class="classes.Arrangor"/> 
 <html>
   <head>
     <title> Lägg till arragörer </title>
@@ -15,10 +14,9 @@
     </head>
     <body>
       <div id="content">
-      <h1> Sätt in namn, Telefon nummer och Email </h1>
       <form id="arrForm">
         <fieldset>
-          <legend>Solution 4-1: Using the email input type</legend>
+          <legend>Add arrangor</legend>
           <label for="name">Namn</label>
           <input id="name" name="name" type="text"/><br/>
 
@@ -35,10 +33,4 @@
       </form>
     </div>
 
-      <footer id="page_footer">
-      <ol>
-        made by: Filip Pettersson for Nortic
-      </ol>
-      </footer>
-    </body>
   </html>

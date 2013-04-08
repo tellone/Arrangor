@@ -1,0 +1,10 @@
+Testsuite: src.test.TestConnectionManager
+Tests run: 1, Failures: 0, Errors: 1, Time elapsed: 0.02 sec
+
+Testcase: testAddArrangor took 0.018 sec
+	Caused an ERROR
+null
+java.lang.NullPointerException
+	at src.dbhandler.ConnectionManager.close(Unknown Source)
+	at src.test.TestConnectionManager.tearDown(Unknown Source)
+

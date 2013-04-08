@@ -14,8 +14,8 @@ import java.util.List;
 import src.dbhandler.*;
 import src.arrangor.*;
 
-@WebServlet("/arrangorer/*")
-public class ArrangerServlet extends HttpServlet {
+@WebServlet("/arrangorer")
+public class ArrangorerServlet extends HttpServlet {
    
    protected String dbURL = null;
    protected String dbUser = null;
@@ -30,14 +30,30 @@ public class ArrangerServlet extends HttpServlet {
       connManager = new ConnectionManager(dbURL, dbUser, dbPassword);
 
    }
-
-   protected void doGet (HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
-      List<Arrangor> arrangorer = connManager.getAllArrangers();
-      req.setAttribute("Arrangorer", arrangorer);
-      req.getRequestDispatcher("/WEB-INF/show.jsp").forward(req, res);
-   }
-   protected void doPost (HttpServletRequest req, HttpServletResponse res)throws ServletException, IOException {
    
+   @Override
+   protected void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+      String view = req.getPathInfo().substring(1);
+      String address = null;
+      if (view.equals("show")) {
+         address = "/WEB-INF/show.jsp";
+         List<Arrangor> arrangorer = connManager.getAllArrangers();
+         req.setAttribute("Arrangorer", arrangorer);
+         req.getRequestDispatcher(address).forward(req, res);
+      } else if (view.equals("add")) {
+      
+         address = "/WEB-INF/add.jsp";
+         req.getRequestDispatcher(address).forward(req, res);
+      } else {
+         
+         address = "/arrangorer/index.jsp";
+         res.sendRedirect(address);
+      }
+   }
+   
+   @Override
+   protected void doPost (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
+      doGet(req, res); 
    }
 
 }
