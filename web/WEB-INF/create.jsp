@@ -14,7 +14,7 @@
     </head>
     <body>
       <div id="content">
-      <form id="arrForm">
+      <form id="arrForm" action="ArrangoerServlet" method="post" va>
         <fieldset>
           <legend>Add arrangor</legend>
           <label for="name">Namn</label>

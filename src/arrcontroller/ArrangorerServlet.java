@@ -14,7 +14,7 @@ import java.util.List;
 import src.dbhandler.*;
 import src.arrangor.*;
 
-@WebServlet("/arrangorer")
+@WebServlet("/*")
 public class ArrangorerServlet extends HttpServlet {
    
    protected String dbURL = null;
@@ -33,28 +33,22 @@ public class ArrangorerServlet extends HttpServlet {
    
    @Override
    protected void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-      String view = req.getPathInfo().substring(1);
-      String address = null;
-      if (view.equals("show")) {
-         address = "/WEB-INF/show.jsp";
+      String address = "/WEB-INF/show.jsp";
          List<Arrangor> arrangorer = connManager.getAllArrangers();
          req.setAttribute("Arrangorer", arrangorer);
          req.getRequestDispatcher(address).forward(req, res);
-      } else if (view.equals("add")) {
-      
-         address = "/WEB-INF/add.jsp";
-         req.getRequestDispatcher(address).forward(req, res);
-      } else {
-         
-         address = "/arrangorer/index.jsp";
-         res.sendRedirect(address);
-      }
    }
    
    @Override
    protected void doPost (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-      doGet(req, res); 
-   }
+      
+      String name = req.getParameter("name");
+      String number = req.getParameter("number");
+      String email = req.getParameter("email1");
+
+      connManager.addArranger(name, number, email);
+
+     }
 
 }
 

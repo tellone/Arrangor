@@ -14,7 +14,6 @@
           
           <p>
             <div id="include_add">
-            <input type="button" id="add" Value="Add Arrangor" action="ArrangorServlet"/>
             
             <jsp:include page="WEB-INF/create.jsp" />
 

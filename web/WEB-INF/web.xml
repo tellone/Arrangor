@@ -63,10 +63,10 @@
     <param-value>goNorticgo</param-value>
   </init-param>
 </servlet>
-  <!-- <servlet-mapping> -->
-  <!--   <servlet-name> ArrangorerServlet </servlet-name> -->
-  <!--   <url-pattern> /* </url-pattern> -->  
-  <!-- </servlet-mapping> -->
+  <servlet-mapping>
+    <servlet-name> ArrangorerServlet </servlet-name>
+    <url-pattern> /* </url-pattern>  
+  </servlet-mapping>
 
   <!-- <error-page> -->
   <!--   <error-code>401</error-code> -->
