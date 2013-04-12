@@ -1,18 +1,18 @@
-<%@page language="java" contentType="text/html"%>
-
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<table border="1">
+  <tr>
+    <th>Id</th>
+    <th>Namn</th>
+    <th>Telefon Nummer</th>
+    <th>Email</th>
+  </tr>
+  <c:forEach items="${arrangorer}" var="arr">
+  <tr>
+    <td> <c:out value="${arr.id}"/></td>
+    <td> <c:out value="${arr.name}"/> </td>
+    <td> <c:out value="${arr.number}"/> </td>
+    <td> <c:out value="${arr.email}"/> </td>
+  </tr>
+  </c:forEach>
 
-<html>
-  <head>
-    <title>Alla arrangorer i systemet</title>
-  </head>
-  <body>
-    <table border="1">
-      <tr><td>Arrangorer</td><td>Namn</td><td>values</td></tr>
-      <c:forEach items="${Arrangorer}" var="arran"><tr>
-        <td>$arran.id </td>
-        <td>$arran.Name </td>
-      </tr>
-      </c:forEach> 
-     </table>
-  </body></html>
+</table>

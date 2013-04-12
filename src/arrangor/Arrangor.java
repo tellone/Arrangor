@@ -21,11 +21,14 @@ public class Arrangor {
       email = mail;
 
    }
+   public int getId() {
+      return id;
+   }
+   
    /** 
     * returns name 
     * @return name
     */
-
    public String getName() {
       return name;
    }

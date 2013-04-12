@@ -49,7 +49,22 @@
       excludes="src/test*/**"/>
   </target>
 
-
-
+  <target name="renewDB">
+    <sql
+      driver="com.mysql.jdbc.Driver"
+      url="jdbc:mysql://localhost:3306/arrangorer"
+      userid="phil"
+      password="goNorticgo"
+      src="arrangorer.sql"
+    /> 
+  </target>
+  <target name="makeWar">
+    <war destfile="FP-Nortic.war" webxml="web/WEB-INF/web.xml">
+    <fileset dir="web">
+      <include name="**/*.*"/>
+    </fileset>
+    <classes dir="web/WEB-INF/classes"/>
+  </war>
+  </target>
 </project>
 

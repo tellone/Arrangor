@@ -1,6 +1,6 @@
 Testsuite: src.test.TestArrangor
-Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.043 sec
+Tests run: 3, Failures: 0, Errors: 0, Time elapsed: 0.02 sec
 
-Testcase: testGetName took 0.006 sec
+Testcase: testGetName took 0.005 sec
 Testcase: testGetNumber took 0 sec
 Testcase: testGetEmail took 0 sec

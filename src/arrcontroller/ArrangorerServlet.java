@@ -10,22 +10,25 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.annotation.WebServlet;
-import java.util.List;
+import java.util.ArrayList;
+import java.util.Collections;
 import src.dbhandler.*;
 import src.arrangor.*;
 
-@WebServlet("/*")
+@WebServlet("/")
 public class ArrangorerServlet extends HttpServlet {
    
    protected String dbURL = null;
    protected String dbUser = null;
    protected String dbPassword = null;
-   protected ConnectionManager connManager = null;
+   private CompareArrangor cmp = null;
+
+   protected ConnectionManager connManager;
 
    public void init(ServletConfig conf) throws ServletException {
       super.init(conf);
       dbURL = getInitParameter("dbURL");
-      dbUser = getInitParameter("dbUser");
+      dbUser = getInitParameter("dbUserName");
       dbPassword = getInitParameter("dbPassword");
       connManager = new ConnectionManager(dbURL, dbUser, dbPassword);
 
@@ -33,10 +36,12 @@ public class ArrangorerServlet extends HttpServlet {
    
    @Override
    protected void doGet (HttpServletRequest req, HttpServletResponse res) throws ServletException, IOException {
-      String address = "/WEB-INF/show.jsp";
-         List<Arrangor> arrangorer = connManager.getAllArrangers();
-         req.setAttribute("Arrangorer", arrangorer);
-         req.getRequestDispatcher(address).forward(req, res);
+      String address = "/index.jsp";
+
+      cmp = new CompareArrangor();
+      ArrayList<Arrangor> arrangorer = connManager.getAllArrangers();
+      req.setAttribute("arrangorer", arrangorer);
+      req.getRequestDispatcher(address).forward(req, res);
    }
    
    @Override
@@ -47,7 +52,8 @@ public class ArrangorerServlet extends HttpServlet {
       String email = req.getParameter("email1");
 
       connManager.addArranger(name, number, email);
-
+      
+      doGet(req, res);
      }
 
 }
